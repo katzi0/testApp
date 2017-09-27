@@ -1,0 +1,19 @@
+.isClicked {
+    background-color: #add8e6;
+}
+ul  {
+    padding: 0px;
+    margin: 0 auto;
+    list-style-type: none;
+    width:100%;
+}
+span {
+    width:100%;
+    display:block;
+}
+.margin20 {
+    margin-left: 20px;
+}
+.margin40 {
+    margin-left: 40px;
+}

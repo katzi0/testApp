@@ -1,8 +1,22 @@
 angular.module('ExamineApp', [])
     .controller('examinCtrl', function ($scope) {
 
-        $scope.test = 1234;
-
+       $scope.currentClickedItem;
+       $scope.selectedContact = '';
+       $scope.iscollapsedArr = [];
+       $scope.iscollapsedSubArr = [];
+       $scope.toggleGroup = function(contact) {
+        let index = $scope.iscollapsedArr.indexOf(contact.id);    
+        if(index == -1){
+                $scope.currentClickedItem = contact.id;
+                $scope.iscollapsedArr.push(contact.id);
+            }
+            else{
+                $scope.iscollapsedArr.splice(index,1);
+                $scope.currentClickedItem = '';
+            }  
+        }
+        
         $scope.contacts = [
             {
                 id: 1,
@@ -31,27 +45,4 @@ angular.module('ExamineApp', [])
             },
             { id: 8, name: "Ori", type: "Contact" },
         ];
-       $scope.selectedContact = '';
-       $scope.iscollapsedArr = [];
-       $scope.iscollapsedSubArr = [];
-       $scope.toggleGroup = function(contact) {
-        var index = $scope.iscollapsedArr.indexOf(contact.id);    
-            if(index == -1){
-                    $scope.iscollapsedArr.push(contact.id);
-                }
-                else{
-                    $scope.iscollapsedArr.splice(index,1);
-                }  
-            }
-
-
-        $scope.toggleSubGroup = function(contact) {
-            var index = $scope.iscollapsedArr.indexOf(contact.id);    
-            if(index == -1){
-                $scope.iscollapsedSubArr.push(contact.id);
-            }
-            else{
-                $scope.iscollapsedSubArr.splice(index,1);
-            } 
-        }
     })
