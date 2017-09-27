@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+        <script src="app.js"></script>
+        <title>Examine App</title>
+    </head>
+    <body ng-app="ExamineApp" ng-controller="examinCtrl">
+        <h1>Contact Tree</h1>
+        <!-- <h3 ng-repeat="contact in contacts" ng-click="getContactChildren(contact)">
+            {{contact.name}}
+        </h3> -->
+        <!-- <ul>
+            <li ng-repeat="contact in contacts" ng-click="getContactChildren(contact)">
+                {{contact.name}}
+                {{selectedContact.contacts.length}}
+                <ul ng-if="selectedContact.contacts.length > 0 && selectedContact.id == contact.id">
+                    <li ng-repeat="children in contact.contacts" ng-click="getContactChildren(contact)">
+                        {{children.name}}
+                         <ul ng-if="selectedContact.id == children.id">
+                              <li ng-repeat="children in contact.contacts">
+                                
+                            </li>
+                         </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul> -->
+
+
+        <ul>
+            <li ng-repeat="contact in contacts track by $index" ng-click="toggleGroup(contact)">
+                {{contact.name}}
+                {{selectedContact.id}}
+                {{contact.id}}
+                <ul ng-if="contact.contacts && contact.contacts.length > 0  && iscollapsedArr.indexOf(contact.id) > -1"><!--&& selectedContact.id == contact.id-->
+                    {{selectedContact.id}}
+                    {{contact.id}}
+                    <li ng-repeat="contact in contact.contacts track by $index" ng-click="$event.stopPropagation();toggleGroup(contact)">
+                        {{contact.name}}
+			         <ul ng-if="contact.contacts && contact.contacts.length > 0  && iscollapsedArr.indexOf(contact.id) > -1">
+                         <li ng-repeat="contact in contact.contacts track by $index" ng-click="$event.stopPropagation();toggleGroup(contact)">
+                        {{contact.name}} 
+                        </li>
+			         </ul>
+		      	</div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+    </body>
+</html>

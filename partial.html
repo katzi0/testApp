@@ -1,0 +1,28 @@
+<!-- <ul ng-if="item.subItems && item.subItems.length > 0" class="sub-menu">
+
+            <li ng-repeat="item in item.subItems" ng-class="{'start': item.isStart, 'nav-item': item.isNavItem}">
+            	 <a href="{{item.href}}" ng-class="{'nav-link nav-toggle': item.subItems && item.subItems.length > 0}">
+		            <span class="title">{{item.text}}</span>
+		        </a>
+            	
+			     <div ng-switch on="item.subItems.length > 0">
+			        <div ng-switch-when="true">
+			          <div ng-init="subItems = item.subItems;" ng-include="'newpartial.html'"></div>  
+			        </div>
+		      	</div>
+				    
+            </li>
+  </ul> -->
+
+                  <!--  <li ng-repeat="children in contact.contacts" ng-click="getContactChildren(contact)">
+                        {{children.name}}
+                    </li>
+                </ul> -->
+
+                 <ul ng-if="contact.contacts && contact.contacts.length > 0 && iscollapsedArr.indexOf(contact.id) > -1"><!--&& selectedContact.id == contact.id-->
+                      {{selectedContact.id}}
+                    {{contact.id}}
+                    <li ng-repeat="contact in contact.contacts" ng-click="toggleGroup(contact)">
+                         {{contact.name}} 
+                    </li>
+                 </ul>
